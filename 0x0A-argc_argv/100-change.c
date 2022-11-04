@@ -1,40 +1,55 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+
 /**
- * main - Entry point
- * @argc: arg count
- * @argv: arg vector
- * Return: succes
+ * main - prints the min
+ * @argc: The number of args
+ * @argv: An array o pointer
+ *
+ * Return: succes 1
  */
 
 int main(int argc, char *argv[])
 {
-	int change[] = {25, 10, 5, 2, 1};
-	int a, b, i, num, result = 0;
+	int cents, coins = 0;
 
-	if (argc <= 1)
+	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	num = atoi(argv[1]);
+	cents = atoi(argv[1]);
 
-	if (num < 0)
-
-		printf("0\n");
-
-	else
+	while (cents > 0)
 	{
-		for (i = 0; i < 5; i++)
+		coins++;
+		if ((cents - 25) >= 0)
 		{
-			a = num / change[i];
-			b = num % change[i];
-			result += a;
-			num =  b;
+			cents -= 25;
+			continue;
 		}
-		prinf("%d\n", result);
+		if ((cents - 10) >= 0)
+		{
+			cents -= 10;
+			continue;
+		}
+		if ((cents - 5) >= 0)
+		{
+			cents -= 5;
+			continue;
+		}
+		if ((cents - 2) >= 0)
+		{
+			cents -= 2;
+			continue;
+		}
+		cents--;
 	}
-	exit(EXIT_SUCCESS);
+
+	printf("%d\n", coins);
+
+	return (0);
+
 }
