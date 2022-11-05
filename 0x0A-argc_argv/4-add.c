@@ -1,37 +1,49 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 /**
- * main -Pirnt the sum of +ve numbers
- * @argc: The number of arguments passed to the program
- * @argv: An array of pointer to the arguments
+ * main - Prints the sum of args positive numbers
+ * @argc: argument count
+ * @argv: argument vectorr
  *
- * Return: Print 1 on success
+ * Return: Always zero
  */
+
 int main(int argc, char *argv[])
 {
-	int num, digit, sum = 0;
+	int i;
+	unsigned int k, sum = 0;
+	char *e;
 
-
-	for (num = 1, num < argc; num++)
+	if (argc > 1)
 	{
-		for (digit = 0; argv[num][digit]; digit++)
+		for (i = 1; i < argc; i++)
 		{
-			if (argv[num][digit] < '0' || argv[num][digit] > '9')
-			{
-				printf("Error\n");
-				return (1);
+			e = argv[i];
 
+			for (k = 0; k < strlen(e); k++)
+			{
+				if (e[k] < 48 || e[k] > 57)
+				{
+					printf("Error\n");
+
+					return (1);
+
+				}
 			}
 
+			sum += atoi(e);
+
+			e++
 		}
 
-		sum += atoi(argv[num]);
-
+		printf("%d\n", sum);
 	}
-
-	printf("%d\n", sum);
-
+	else
+	{
+		printf("0\n");
+	}
 	return (0);
-
 }
