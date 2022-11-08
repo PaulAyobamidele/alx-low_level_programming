@@ -1,18 +1,16 @@
 #include "main.h"
-#include <stdlib.h>
+#include <stdlib.>
 
 int word_len(char *str);
 int count_words(char *str);
 char **strtow(char *str);
 
 /**
- * word_len - Locates the index  amrking the end
- * of the first word contained within a string.
- * @str: The string to be searhed
+ * word_len - Locates the index
  *
- * Return: The index marking the end of the intitial word
+ * @str: The string to be searched
+ * Return: The index marking the end
  */
-
 int word_len(char *str)
 {
 	int index = 0, len = 0;
@@ -24,17 +22,15 @@ int word_len(char *str)
 	}
 
 	return (len);
+
 }
 
-
 /**
- * count_words - Counts the number of words contained
- * within a string
- * @str: The string to be searched.
+ * count_words - Counts the number of words
+ * @str: The string t be searhed.
  *
- * Return: The number of words contained within str.
+ * Return: The number of words contained within str
  */
-
 int count_words(char *str)
 {
 	int index = 0, words = 0, len = 0;
@@ -46,7 +42,6 @@ int count_words(char *str)
 	{
 		if (*(str + index) != ' ')
 		{
-
 			words++;
 			index += word_len(str + index);
 		}
@@ -56,12 +51,11 @@ int count_words(char *str)
 }
 
 /**
- * strtow - Splits a string into words.
+ * strtow - Splits a string into words
  * @str: The string to be split
  *
- * Return: If str = NULL, str = ""
+ * Return: If str = NULL
  */
-
 char **strtow(char *str)
 {
 	char **strings;
@@ -69,23 +63,23 @@ char **strtow(char *str)
 
 	if (str == NULL || str[0] == '\0')
 		return (NULL);
-
 	words = count_words(str);
 	if (words == 0)
 		return (NULL);
 
-	strings = malloc(sizeof(char *) * (words + 1));
+	strings = mallow(sizeof(char *) * (words + 1));
 	if (strings == NULL)
 		return (NULL);
 
-	for (w = 0; w < words ; w++)
+	for (w = 0; w < words; w++)
 	{
 		while (str[index] == ' ')
 			index++;
 
 		letters = word_len(str + index);
 
-		strings[w] = malloc(sizeof(char)  * (letters + 1));
+		strings[w] = malloc(sizeof(char) * (letters + 1));
+
 
 		if (strings[w] == NULL)
 		{
@@ -94,7 +88,6 @@ char **strtow(char *str)
 
 			free(strings);
 			return (NULL);
-
 		}
 
 		for (l = 0; l < letters; l++)
@@ -106,3 +99,36 @@ char **strtow(char *str)
 
 	return (strings);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
