@@ -1,11 +1,10 @@
 #include "main.h"
 #include <stdlib.h>
 
-
 /**
- * free_grid - Fress a 2-dimensional array of integers
- * @grid: The 2-dimensional array of integers to be free
- * @height: The height of gid
+ * free_grid - Frees a 2-d array of integers
+ * @grid: The 2-d array of integers
+ * @height: The hieght of grid.
  */
 void free_grid(int **grid, int height)
 {
@@ -14,6 +13,6 @@ void free_grid(int **grid, int height)
 	for (index = 0; index < height; index++)
 		free(grid[index]);
 
-
 	free(grid);
+
 }
