@@ -2,12 +2,13 @@
 #include <stdlib.h>
 
 /**
- * str_concat - Concatenates two strings
- * @s1: The string to be concatenated upon
- * @s2: The string to be concatenated to s1
- * Return: If the concatenation fails - NULL, otherwise
+ * str_concat - concatenate two strings
+ * @s1: The string to be concat
+ * @s2: The string to be concat to s1
+ *
+ * Return: If concat fails - NULL
+ *
  */
-
 char *str_concat(char *s1, char *s2)
 {
 	char *concat_str;
@@ -21,7 +22,6 @@ char *str_concat(char *s1, char *s2)
 
 	for (index = 0; s1[index] || s2[index]; index++)
 		len++;
-
 
 	concat_str = malloc(sizeof(char) * len);
 
